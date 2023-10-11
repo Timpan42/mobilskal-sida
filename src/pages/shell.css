@@ -1,0 +1,86 @@
+.shell-flex {
+    display: flex;
+    gap: 5rem;
+}
+
+.shell-img-flex {
+    display: flex;
+    gap: 2rem;
+}
+
+.shell-small-img {
+    display: flex;
+    flex-direction: column;
+}
+
+.shell-small-img img {
+    margin-top: 10px;
+    width: 100px;
+    height: 150px;
+}
+
+.shell-main-img {}
+
+.shell-main-img img {
+    width: 100%;
+    height: min(50rem, 100vw - var(--space-xl));
+}
+
+
+.shell-product-priss {
+    padding: 1rem;
+    background-color: var(--color-primary);
+    border-radius: 5px;
+}
+
+.shell-product-priss-button {
+    display: flex;
+    flex-direction: column;
+}
+
+.shell-product-priss select {
+    background-color: var(--color-secondary);
+    font-size: var(--step-0);
+    border: none;
+    border-radius: 0.5rem;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+}
+
+.shell-product-priss-button button {
+    width: fit-content;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.shell-product-priss-button p {
+    margin: 0;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.shell-buy-button {
+    text-align: center;
+}
+
+.shell-buy-button button {
+    font-size: var(--step-2);
+    font-weight: 600;
+    padding-left: 3rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-right: 3rem;
+}
+
+.shell-info {
+    border-radius: 5px;
+    padding: 2rem;
+    background-color: var(--color-primary);
+}
+
+.shell-info p {
+    padding-left: 2rem;
+}

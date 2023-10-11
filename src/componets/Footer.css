@@ -1,0 +1,41 @@
+.footer-container {
+    background-color: black;
+    color: var(--color-bg);
+    padding: 2rem;
+}
+
+.footer-list {
+    display: inline-block;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: min(30rem, 100vw - var(--space-xl));
+    object-fit: cover;
+    gap: 1rem;
+}
+
+.footer-list-elements {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-list-elements h2 {
+    font-size: var(--step-2);
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.footer-list-elements h3 {
+    font-size: var(--step-1);
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.footer-list-elements p {
+    font-size: var(--step-0);
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
