@@ -1,5 +1,7 @@
 import "./shell.css"
 
+import { Link } from "react-router-dom"
+
 import plastic from "../assets/plastic.jpg"
 
 
@@ -42,7 +44,7 @@ function ShellPage() {
 
                                 </select>
                                 <div className="shell-buy-button section">
-                                    <a href="./cart.html"><button>KÖP</button></a>
+                                    <Link to="/CartPage"><button>KÖP</button></Link>
                                 </div>
                                 <p>
                                     I lager: 5

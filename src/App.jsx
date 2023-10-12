@@ -35,8 +35,8 @@ function App() {
     <>
       <BrowserRouter>
         <NavBar />
-
         <Routes>
+
           <Route path='/' element={<HomePage />} />
           <Route path='/ShellPage' element={<ShellPage />} />
           <Route path='/CartPage' element={<CartPage />} />

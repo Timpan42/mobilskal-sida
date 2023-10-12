@@ -1,5 +1,8 @@
 import "./Footer.css"
 
+import { Link } from "react-router-dom"
+
+
 function Footer() {
     return (
 
@@ -31,7 +34,7 @@ function Footer() {
                                     Kontakta oss
                                 </h2>
                                 <h3>
-                                    <a href="./pages/contact.html">Kundtjänst</a>
+                                    <Link to="../ContactPage">Kundtjänst</Link>
                                 </h3>
                                 <p>
                                     Telefon: +46 16 305 8304

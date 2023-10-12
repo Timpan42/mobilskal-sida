@@ -15,27 +15,37 @@ function NavBar() {
                         <span className="line line3"></span>
                     </div>
                     <ul className="menu-items">
-                        <NavLink
-                            to="/CartPage"
-                            className={({ isActive, isPending }) =>
-                                isPending ? "pending" : isActive ? "active" : ""
-                            }>
-                            Kundvagn
-                        </NavLink>
-                        <NavLink
-                            to="/"
-                            className={({ isActive, isPending }) =>
-                                isPending ? "pending" : isActive ? "active" : ""
-                            }>
-                            Hem
-                        </NavLink>
-                        <NavLink
-                            to="/"
-                            className={({ isActive, isPending }) =>
-                                isPending ? "pending" : isActive ? "active" : ""
-                            }>
-                            Produkter
-                        </NavLink>
+
+                        <li>
+                            <NavLink
+                                to="/CartPage"
+                                className={({ isActive, isPending }) =>
+                                    isPending ? "pending" : isActive ? "active" : ""
+                                }>
+                                Kundvagn
+                            </NavLink>
+                        </li>
+
+                        <li>
+                            <NavLink
+                                to="/"
+                                className={({ isActive, isPending }) =>
+                                    isPending ? "pending" : isActive ? "active" : ""
+                                }>
+                                Hem
+                            </NavLink>
+                        </li>
+
+                        <li>
+                            <NavLink
+                                to="/ProductsPage"
+                                className={({ isActive, isPending }) =>
+                                    isPending ? "pending" : isActive ? "active" : ""
+                                }>
+                                Produkter
+                            </NavLink>
+                        </li>
+
                         <li> <input type="text" name="search" placeholder="Search.." /></li>
 
                     </ul>
