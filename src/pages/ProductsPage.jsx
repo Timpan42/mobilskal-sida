@@ -8,8 +8,31 @@ import unique from "../assets/unique.jpg"
 import DropDown from "../componets/DropDown"
 import GridProdocts from "../componets/GridProdocts"
 
+import { useEffect, useState } from 'react'
+
+
 
 function ProductsPage() {
+
+    const [data, setData] = useState([])
+
+    async function fetchData() {
+        await fetch('http://localhost:3000/product')
+            .then(res => res.json())
+            .then(result => {
+                setData(result)
+                console.log(result)
+            }).catch(err => {
+                console.log(err)
+            })
+    }
+
+    useEffect(() => {
+        fetchData()
+        console.log(data)
+    }, [])
+
+
     return (
         <>
             <main className="nav-padding">
@@ -30,6 +53,8 @@ function ProductsPage() {
                     </div>
                 </article>
 
+                <button onClick={() => fetchData()}>get data</button>
+
 
                 <DropDown />
 
@@ -37,7 +62,21 @@ function ProductsPage() {
 
                     <ul className="features grid" role="list">
 
-                        <GridProdocts
+                        {data.map((data, index) =>
+                            <GridProdocts
+                                key={index}
+                                LINK={"/ShellPage"}
+                                IMG={data.picture}
+                                IMG_ALT={"picture of a shell"}
+                                NAME={data.name}
+                                MATERIAL={data.categories[0].categoryId}
+                                PHONETYPE={data.phonemodel[0].phoneModel}
+                                PRICE={data.price}
+                            />
+                        )}
+
+
+                        {/* <GridProdocts
                             LINK={"/ShellPage"}
                             IMG={plastic}
                             IMG_ALT={"Bild på ett telefon läderskal med texten 'Nyheter'."}
@@ -95,7 +134,7 @@ function ProductsPage() {
                             MATERIAL={"läder"}
                             PHONETYPE={"Phone 15"}
                             PRICE={"399 SEK"}
-                        />
+                        /> */}
 
                     </ul>
                 </article>

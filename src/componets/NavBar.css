@@ -26,8 +26,11 @@
     align-items: center;
 }
 
+.navbar-container a {
+    width: 25%;
+}
+
 .menu-items {
-    order: 2;
     display: flex;
     align-items: center;
 }
@@ -51,9 +54,8 @@
 }
 
 .logo {
-    order: 2;
     margin-bottom: 0.5rem;
-    width: 25%;
+    width: 100%;
 }
 
 
