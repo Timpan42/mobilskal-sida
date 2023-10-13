@@ -20,7 +20,7 @@ function App() {
   const [data, setData] = useState([])
 
   async function fetchData() {
-    await fetch('http://localhost:3000')
+    await fetch('http://localhost:3000/product?page=10')
       .then(res => res.json())
       .then(result => {
         setData(result)
@@ -44,6 +44,9 @@ function App() {
           <Route path='/ProductsPage' element={<ProductsPage />} />
 
         </Routes>
+
+        <button onClick={() => fetchData()}>get data</button>
+
         <Footer />
       </BrowserRouter>
 
