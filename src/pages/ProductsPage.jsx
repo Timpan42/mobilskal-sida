@@ -62,21 +62,28 @@ function ProductsPage() {
 
                     <ul className="features grid" role="list">
 
-                        {data.map((data, index) =>
-                            <GridProdocts
-                                key={index}
-                                LINK={"/ShellPage"}
-                                IMG={data.picture}
-                                IMG_ALT={"picture of a shell"}
-                                NAME={data.name}
-                                MATERIAL={data.categories[0].categoryId}
-                                PHONETYPE={data.phonemodel[0].phoneModel}
-                                PRICE={data.price}
-                            />
-                        )}
+                        {data.data ? (
+                            <>
+                                {data.data.map((data, index) =>
+                                    <GridProdocts
+                                        key={index}
+                                        LINK={"/ShellPage"}
+                                        IMG={data.picture}
+                                        IMG_ALT={"picture of a shell"}
+                                        NAME={data.name}
+                                        MATERIAL={data.categories[0].categoryId}
+                                        PHONETYPE={data.phonemodel[0].phoneModel}
+                                        PRICE={data.price}
+                                    />
+                                )}
+                            </>
+                        ) : (
+                            <p>Products is currently loading</p>
+                        )
 
 
-                        {/* <GridProdocts
+
+                        /* <GridProdocts
                             LINK={"/ShellPage"}
                             IMG={plastic}
                             IMG_ALT={"Bild på ett telefon läderskal med texten 'Nyheter'."}
