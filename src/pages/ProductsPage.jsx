@@ -53,9 +53,7 @@ function ProductsPage() {
                     </div>
                 </article>
 
-                <button onClick={() => fetchData()}>get data</button>
-
-
+                {/* Inte klar */}
                 <DropDown />
 
                 <article className="wrapper container section">
@@ -67,6 +65,7 @@ function ProductsPage() {
                                 {data.data.map((data, index) =>
                                     <GridProdocts
                                         key={index}
+                                        PRODUCT_ID={data.id}
                                         LINK={"/ShellPage"}
                                         IMG={data.picture}
                                         IMG_ALT={"picture of a shell"}
@@ -79,70 +78,7 @@ function ProductsPage() {
                             </>
                         ) : (
                             <p>Products is currently loading</p>
-                        )
-
-
-
-                        /* <GridProdocts
-                            LINK={"/ShellPage"}
-                            IMG={plastic}
-                            IMG_ALT={"Bild på ett telefon läderskal med texten 'Nyheter'."}
-                            NAME={"Backsippor"}
-                            MATERIAL={"läder"}
-                            PHONETYPE={"Phone 15"}
-                            PRICE={"399 SEK"}
-                        />
-
-                        <GridProdocts
-                            LINK={"/ShellPage"}
-                            IMG={plastic}
-                            IMG_ALT={"Bild på ett telefon läderskal med texten 'Nyheter'."}
-                            NAME={"Blåstjärnor"}
-                            MATERIAL={"läder"}
-                            PHONETYPE={"Phone 15"}
-                            PRICE={"399 SEK"}
-                        />
-
-                        <GridProdocts
-                            LINK={"/ShellPage"}
-                            IMG={plastic}
-                            IMG_ALT={"Bild på ett telefon läderskal med texten 'Nyheter'."}
-                            NAME={"Fläder"}
-                            MATERIAL={"läder"}
-                            PHONETYPE={"Phone 15"}
-                            PRICE={"399 SEK"}
-                        />
-
-                        <GridProdocts
-                            LINK={"/ShellPage"}
-                            IMG={unique}
-                            IMG_ALT={"Bild på ett telefon läderskal med texten 'Nyheter'."}
-                            NAME={"Backsippor"}
-                            MATERIAL={"läder"}
-                            PHONETYPE={"Phone 15"}
-                            PRICE={"399 SEK"}
-                        />
-
-                        <GridProdocts
-                            LINK={"/ShellPage"}
-                            IMG={unique}
-                            IMG_ALT={"Bild på ett telefon läderskal med texten 'Nyheter'."}
-                            NAME={"Blåstjärnor"}
-                            MATERIAL={"läder"}
-                            PHONETYPE={"Phone 15"}
-                            PRICE={"399 SEK"}
-                        />
-
-                        <GridProdocts
-                            LINK={"/ShellPage"}
-                            IMG={unique}
-                            IMG_ALT={"Bild på ett telefon läderskal med texten 'Nyheter'."}
-                            NAME={"Fläder"}
-                            MATERIAL={"läder"}
-                            PHONETYPE={"Phone 15"}
-                            PRICE={"399 SEK"}
-                        /> */}
-
+                        )}
                     </ul>
                 </article>
             </main>

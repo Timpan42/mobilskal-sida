@@ -1,13 +1,21 @@
 
 import { Link } from "react-router-dom"
 
+import { useState } from 'react'
+
 function GridProdocts(props) {
-    let { LINK, IMG, IMG_ALT, NAME, MATERIAL, PHONETYPE, PRICE } = props
+    let { PRODUCT_ID, LINK, IMG, IMG_ALT, NAME, MATERIAL, PHONETYPE, PRICE } = props
+
+    const [productId, setProductId] = useState(0)
+
+    function storeData() {
+        setProductId(PRODUCT_ID)
+    }
 
     return (
         <li className="main-list-cards flow">
             <div className="products-list-img-background">
-                <Link to={LINK} >
+                <Link to={LINK} onClick={storeData}>
                     <img src={IMG} alt={IMG_ALT} />
                     <div className="products-list-elements">
                         <h3>
@@ -20,7 +28,7 @@ function GridProdocts(props) {
                             {PHONETYPE}
                         </p>
                         <p>
-                            {PRICE}
+                            {PRICE} SEK
                         </p>
                     </div>
                 </Link>
