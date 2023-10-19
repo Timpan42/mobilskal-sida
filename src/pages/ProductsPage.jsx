@@ -29,7 +29,6 @@ function ProductsPage() {
 
     useEffect(() => {
         fetchData()
-        console.log(data)
     }, [])
 
 

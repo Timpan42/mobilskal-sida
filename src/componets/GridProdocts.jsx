@@ -1,15 +1,17 @@
 
 import { Link } from "react-router-dom"
 
-import { useState } from 'react'
+import { ProductIdContext } from "./ProductContext"
+
+import { useState, useContext } from 'react'
 
 function GridProdocts(props) {
     let { PRODUCT_ID, LINK, IMG, IMG_ALT, NAME, MATERIAL, PHONETYPE, PRICE } = props
 
-    const [productId, setProductId] = useState(0)
+    const [value, setValue] = useContext(ProductIdContext)
 
     function storeData() {
-        setProductId(PRODUCT_ID)
+        setValue(PRODUCT_ID)
     }
 
     return (

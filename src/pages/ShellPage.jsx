@@ -1,48 +1,91 @@
 import "./shell.css"
 
 import { Link } from "react-router-dom"
-
 import plastic from "../assets/plastic.jpg"
+import { useEffect, useState, createContext, useContext } from 'react'
+
+import { ProductIdContext } from "../componets/ProductContext"
 
 
 function ShellPage() {
+    const [value, setValue] = useContext(ProductIdContext)
+
+    const [data, setData] = useState([])
+
+    async function fetchData() {
+        console.log(value)
+        await fetch(`http://localhost:3000/product/${value}`)
+            .then(res => res.json())
+            .then(result => {
+                setData(result)
+                console.log(result)
+            }).catch(err => {
+                console.log(err)
+            })
+    }
+
+    useEffect(() => {
+        fetchData()
+    }, [])
+
     return (
         <>
             <main className="nav-padding">
                 <article className="shell-flex wrapper container section">
                     <div className="shell-img-flex">
                         <div className="shell-small-img">
-                            <img src={plastic} alt="" />
-                            <img src={plastic} alt="" />
-                            <img src={plastic} alt="" />
+                            {data.data ? (
+                                <>
+                                    <img src={data.data.picture} alt="" />
+                                    <img src={data.data.picture} alt="" />
+                                    <img src={data.data.picture} alt="" />
+                                </>
+                            ) : (
+                                <p> inte nu</p>
+                            )}
                         </div>
 
                         <div className="shell-main-img">
-                            <img src={plastic} alt="" />
+                            {data.data ? (
+                                <>
+                                    <img src={data.data.picture} alt="" />
+                                </>
+                            ) : (
+                                <p> inte nu</p>
+                            )}
                         </div>
                     </div>
                     <div className="">
                         <div className="shell-product-priss">
                             <div className="shell-flex">
-                                <h3>Produkt namn</h3>
-                                <p>399 SEK</p>
+                                {data.data ? (
+                                    <>
+                                        <h3>{data.data.name}</h3>
+                                        <p>{data.data.price} SEK</p>
+                                    </>
+
+                                ) : (
+                                    <p> inte nu</p>
+                                )
+                                }
+
                             </div>
                             <div className="shell-product-priss-button">
-                                <select name="phoneTyp" id="phoneTyp">
-                                    <optgroup label="iPhones">
-                                        <option value="iphone_15">iPhone 15</option>
-                                        <option value="iphone_15_pro">iPhone 15 Pro</option>
-                                    </optgroup>
-                                    <optgroup label="Samsung">
-                                        <option value="galaxy_s23">Galaxy s23</option>
-                                        <option value="galaxy_s23_ultra">Galaxy s23 Ultra</option>
-                                    </optgroup>
-                                    <optgroup label="Google">
-                                        <option value="pixel_8">Pixel 8</option>
-                                        <option value="pixel_8_pro">Pixel 8 Pro</option>
-                                    </optgroup>
 
-                                </select>
+                                {data.data ? (
+                                    <>
+                                        <select name="phoneTyp" id="phoneTyp">
+                                            <optgroup label={data.data.brand[0].brand}>
+                                                <option value={data.data.phonemodel[0].phoneModel}>{data.data.phonemodel[0].phoneModel}</option>
+                                            </optgroup>
+                                        </select>
+
+                                    </>
+
+                                ) : (
+                                    <p> inte nu</p>
+                                )
+                                }
                                 <div className="shell-buy-button section">
                                     <Link to="/CartPage"><button>KÖP</button></Link>
                                 </div>
@@ -63,13 +106,15 @@ function ShellPage() {
                         <h3>
                             Viktig infomration som ska finnas
                         </h3>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                            industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
-                            and scrambled it to make a type specimen book. It has survived not only five centuries, but also the
-                            leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s
-                            with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
-                            publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-                        </p>
+                        {data.data ? (
+                            <>
+                                <p>{data.data.description}</p>
+                            </>
+
+                        ) : (
+                            <p> inte nu</p>
+                        )
+                        }
                     </div>
                 </article>
 

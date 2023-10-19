@@ -12,26 +12,32 @@ import CartPage from './pages/CartPage'
 import ContactPage from './pages/ContactPage'
 import ProductsPage from './pages/ProductsPage'
 
-
-import { useState } from 'react'
+import { ProductIdContext } from './componets/ProductContext'
+import { useState, createContext, useContext } from 'react'
 import './App.css'
 
+
 function App() {
+  const [productId, setProductId] = useState()
 
   return (
     <>
       <BrowserRouter>
         <NavBar />
+        <ProductIdContext.Provider value={[productId, setProductId]}>
+          <Routes>
 
-        <Routes>
+            <Route path='/' element={<HomePage />} />
 
-          <Route path='/' element={<HomePage />} />
-          <Route path='/ShellPage' element={<ShellPage />} />
-          <Route path='/CartPage' element={<CartPage />} />
-          <Route path='/ContactPage' element={<ContactPage />} />
-          <Route path='/ProductsPage' element={<ProductsPage />} />
+            <Route path='/ShellPage' element={<ShellPage />} />
 
-        </Routes>
+            <Route path='/CartPage' element={<CartPage />} />
+            <Route path='/ContactPage' element={<ContactPage />} />
+
+            <Route path='/ProductsPage' element={<ProductsPage />} />
+
+          </Routes>
+        </ProductIdContext.Provider>
 
         <Footer />
       </BrowserRouter>
