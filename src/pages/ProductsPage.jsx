@@ -1,10 +1,5 @@
 import "./products.css"
 
-import { Link } from "react-router-dom"
-
-
-import plastic from "../assets/plastic.jpg"
-import unique from "../assets/unique.jpg"
 import DropDown from "../componets/DropDown"
 import GridProdocts from "../componets/GridProdocts"
 

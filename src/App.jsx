@@ -12,7 +12,8 @@ import CartPage from './pages/CartPage'
 import ContactPage from './pages/ContactPage'
 import ProductsPage from './pages/ProductsPage'
 
-import { ProductIdContext } from './componets/ProductContext'
+import { ProductIdContextProvider } from './componets/context/ProductContext'
+import { CartContextProvider } from './componets/context/CartContext'
 import { useState, createContext, useContext } from 'react'
 import './App.css'
 
@@ -24,21 +25,22 @@ function App() {
     <>
       <BrowserRouter>
         <NavBar />
-        <ProductIdContext.Provider value={[productId, setProductId]}>
-          <Routes>
+        <CartContextProvider>
+          <ProductIdContextProvider>
+            <Routes>
 
-            <Route path='/' element={<HomePage />} />
+              <Route path='/' element={<HomePage />} />
 
-            <Route path='/ShellPage' element={<ShellPage />} />
+              <Route path='/ShellPage' element={<ShellPage />} />
 
-            <Route path='/CartPage' element={<CartPage />} />
-            <Route path='/ContactPage' element={<ContactPage />} />
+              <Route path='/CartPage' element={<CartPage />} />
+              <Route path='/ContactPage' element={<ContactPage />} />
 
-            <Route path='/ProductsPage' element={<ProductsPage />} />
+              <Route path='/ProductsPage' element={<ProductsPage />} />
 
-          </Routes>
-        </ProductIdContext.Provider>
-
+            </Routes>
+          </ProductIdContextProvider>
+        </CartContextProvider>
         <Footer />
       </BrowserRouter>
 

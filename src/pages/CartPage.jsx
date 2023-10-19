@@ -1,9 +1,16 @@
 import "./cart.css"
 
 import plastic from "../assets/plastic.jpg"
+import { useContext } from "react"
+import { CartContext } from "../componets/context/CartContext"
 
 
 function CartPage() {
+
+    const cart = useContext(CartContext)
+
+    console.log(cart)
+
     return (
         <>
             <main className="nav-padding section">

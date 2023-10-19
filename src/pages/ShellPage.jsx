@@ -4,17 +4,19 @@ import { Link } from "react-router-dom"
 import plastic from "../assets/plastic.jpg"
 import { useEffect, useState, createContext, useContext } from 'react'
 
-import { ProductIdContext } from "../componets/ProductContext"
+import { ProductIdContext } from "../componets/context/ProductContext"
+import { CartContext } from "../componets/context/CartContext"
 
 
 function ShellPage() {
-    const [value, setValue] = useContext(ProductIdContext)
+    const { productId } = useContext(ProductIdContext)
+    const { addToCart } = useContext(CartContext)
 
     const [data, setData] = useState([])
 
     async function fetchData() {
-        console.log(value)
-        await fetch(`http://localhost:3000/product/${value}`)
+        console.log(productId)
+        await fetch(`http://localhost:3000/product/${productId}`)
             .then(res => res.json())
             .then(result => {
                 setData(result)
@@ -23,7 +25,6 @@ function ShellPage() {
                 console.log(err)
             })
     }
-
     useEffect(() => {
         fetchData()
     }, [])
@@ -87,7 +88,7 @@ function ShellPage() {
                                 )
                                 }
                                 <div className="shell-buy-button section">
-                                    <Link to="/CartPage"><button>KÖP</button></Link>
+                                    <Link to="/CartPage"><button onClick={() => { addToCart(data.data) }}>KÖP</button></Link>
                                 </div>
                                 <p>
                                     I lager: 5
