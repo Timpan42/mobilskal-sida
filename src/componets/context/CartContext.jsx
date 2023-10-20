@@ -2,7 +2,7 @@ import { createContext, useState, useEffect } from "react";
 
 export const CartContext = createContext();
 
-export const CartContextProvider = (children) => {
+export const CartContextProvider = ({ children }) => {
     const [cart, setCart] = useState(JSON.parse(localStorage.getItem("cart")) || []);
 
     useEffect(() => {
@@ -22,7 +22,7 @@ export const CartContextProvider = (children) => {
         <CartContext.Provider value={{
             cart,
             addToCart,
-            removeFromCart
+            removeFromCart,
         }}>
             {children}
         </CartContext.Provider>

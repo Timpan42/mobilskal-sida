@@ -2,14 +2,14 @@ import "./shell.css"
 
 import { Link } from "react-router-dom"
 import plastic from "../assets/plastic.jpg"
-import { useEffect, useState, createContext, useContext } from 'react'
+import { useEffect, useState, useContext } from 'react'
 
 import { ProductIdContext } from "../componets/context/ProductContext"
 import { CartContext } from "../componets/context/CartContext"
 
 
 function ShellPage() {
-    const { productId } = useContext(ProductIdContext)
+    const [productId, setProductId] = useContext(ProductIdContext)
     const { addToCart } = useContext(CartContext)
 
     const [data, setData] = useState([])
@@ -88,7 +88,7 @@ function ShellPage() {
                                 )
                                 }
                                 <div className="shell-buy-button section">
-                                    <Link to="/CartPage"><button onClick={() => { addToCart(data.data) }}>KÖP</button></Link>
+                                    <Link to="/CartPage"><button onClick={() => addToCart(data.data)}>KÖP</button></Link>
                                 </div>
                                 <p>
                                     I lager: 5

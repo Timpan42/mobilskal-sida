@@ -8,7 +8,7 @@ import { useState, useContext } from 'react'
 function GridProdocts(props) {
     let { PRODUCT_ID, LINK, IMG, IMG_ALT, NAME, MATERIAL, PHONETYPE, PRICE } = props
 
-    const [setProductId] = useContext(ProductIdContext)
+    const [productId, setProductId] = useContext(ProductIdContext)
 
     function storeData() {
         setProductId(PRODUCT_ID)

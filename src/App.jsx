@@ -12,9 +12,9 @@ import CartPage from './pages/CartPage'
 import ContactPage from './pages/ContactPage'
 import ProductsPage from './pages/ProductsPage'
 
-import { ProductIdContextProvider } from './componets/context/ProductContext'
+import { ProductIdContext } from './componets/context/ProductContext'
 import { CartContextProvider } from './componets/context/CartContext'
-import { useState, createContext, useContext } from 'react'
+import { useState } from 'react'
 import './App.css'
 
 
@@ -25,8 +25,10 @@ function App() {
     <>
       <BrowserRouter>
         <NavBar />
-        <CartContextProvider>
-          <ProductIdContextProvider>
+
+        <ProductIdContext.Provider value={[productId, setProductId]}>
+          <CartContextProvider>
+
             <Routes>
 
               <Route path='/' element={<HomePage />} />
@@ -37,12 +39,12 @@ function App() {
               <Route path='/ContactPage' element={<ContactPage />} />
 
               <Route path='/ProductsPage' element={<ProductsPage />} />
-
             </Routes>
-          </ProductIdContextProvider>
-        </CartContextProvider>
+          </CartContextProvider>
+
+        </ProductIdContext.Provider>
         <Footer />
-      </BrowserRouter>
+      </BrowserRouter >
 
     </>
   )
