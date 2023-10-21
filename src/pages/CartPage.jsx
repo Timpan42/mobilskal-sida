@@ -18,6 +18,25 @@ function CartPage() {
                     <h1>Kundvagn</h1>
 
                     <div className="cart-container">
+
+                        <div className="cart-container-elements">
+                            <div className="cart-flex">
+                                <img src={plastic} alt="" />
+                                <div>
+                                    <p>Produkt namn</p>
+                                    <p>Model: iPhone 10</p>
+                                </div>
+                                <div className="number">
+                                    <span className="minus">-</span>
+                                    <input type="text" value={1} />
+                                    <span className="plus">+</span>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+
                         <div className="cart-container-elements ">
 
                             <h2>Kund Uppgifter</h2>
@@ -46,56 +65,6 @@ function CartPage() {
                                 <button>Betala</button>
                             </div>
 
-                        </div>
-                        <div className="cart-container-elements">
-                            <div className="cart-flex">
-                                <h3>Produkt namn</h3>
-                                <img src={plastic} alt="" />
-                            </div>
-                            <div>
-                                <select className="cart-container-elements-select" name="phoneTyp" id="phoneTyp">
-                                    <optgroup label="iPhones">
-                                        <option value="iphone_15">iPhone 15</option>
-                                        <option value="iphone_15_pro">iPhone 15 Pro</option>
-                                    </optgroup>
-                                    <optgroup label="Samsung">
-                                        <option value="galaxy_s23">Galaxy s23</option>
-                                        <option value="galaxy_s23_ultra">Galaxy s23 Ultra</option>
-                                    </optgroup>
-                                    <optgroup label="Google">
-                                        <option value="pixel_8">Pixel 8</option>
-                                        <option value="pixel_8_pro">Pixel 8 Pro</option>
-                                    </optgroup>
-
-                                </select>
-
-                                <div className="cart-product-priss">
-                                    <p>
-                                        Priss:
-                                    </p>
-                                    <p>
-                                        399 SEK
-                                    </p>
-                                </div>
-
-                                <div className="cart-product-priss">
-                                    <p>
-                                        Frakt:
-                                    </p>
-                                    <p>
-                                        30 SEK
-                                    </p>
-                                </div>
-
-                                <div className="cart-product-priss">
-                                    <p>
-                                        Priss:
-                                    </p>
-                                    <p>
-                                        429 SEK
-                                    </p>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </article>
