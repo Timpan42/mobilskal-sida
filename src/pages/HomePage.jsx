@@ -1,5 +1,8 @@
 import "./home.css"
 
+import { Link } from "react-router-dom"
+
+
 import lether from "../assets/lether.jpg"
 import design from "../assets/new_design.jpg"
 import newImg from "../assets/new.jpg"
@@ -28,10 +31,11 @@ function HomePage() {
                         <h2>
                             Cases that are made with the best quality
                         </h2>
-
-                        <button>
-                            Utforska skal
-                        </button>
+                        <Link to="/ProductsPage" >
+                            <button>
+                                Utforska skal
+                            </button>
+                        </Link>
                     </div>
                     <div className="margin-block">
 
