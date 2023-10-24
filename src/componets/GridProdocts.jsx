@@ -23,9 +23,9 @@ function GridProdocts(props) {
                         <h3>
                             {NAME}
                         </h3>
-                        <p>
+                        {/* <p>
                             {MATERIAL}
-                        </p>
+                        </p> */}
                         <p>
                             {PHONETYPE}
                         </p>
